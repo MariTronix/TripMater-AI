@@ -1,0 +1,10 @@
+Prompt:
+
+Orçamento 10 mil, pretendo passar 1 mês, sou aventureira, vou sozinha. Vou sair de Recife e quero viajar para Gramado no dia 20 de setembro de 2026; hospedagem pode ser a mais barata.
+
+Descrição:
+
+O fluxo passou normalmente pelos agentes, mas ao chegar no Agente de Eventos Globais, ele deu a resposta e parou. O Agente de Apresentação não teve oportunidade de finalizar a conversa e organizar tudo o que foi debatido pelos agentes.
+
+Solução:
+Aumentamos o Max Message no orquestrador para 50 mensagens.

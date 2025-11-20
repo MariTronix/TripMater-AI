@@ -1,0 +1,11 @@
+Prompt:
+
+Quero ir para nordeste em janeiro.
+
+Descrição:
+
+O fluxo passou pelos: Agente de Perfil, Agente de Destino, Agente de Transporte, Agente de Hospedagem, Agente Financeiro, Agente de Experiência Local e Agente de Viabilidade e Risco. Quando chegou no Agente de Itinerário Detalhado, ocorreu um erro. O grupo foi pesquisar sobre o erro e encontramos que não podemos salvar o nome dos agentes com acentuação.
+
+Solução:
+
+Removemos todos os acentos que existiam nos nomes de cada agente.

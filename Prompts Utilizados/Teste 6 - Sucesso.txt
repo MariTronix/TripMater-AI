@@ -1,0 +1,11 @@
+Prompt:
+
+Saindo de Recife, quero assistir à Fórmula 1 em São Paulo em 2026. Me dê a melhor opção para essa viagem, para passar 3 dias: sexta, sábado e domingo. Tenho 20 mil. Não quero visitar nada, foco no evento.
+
+Descrição:
+
+Consertamos o prompt e o fluxo de agentes funcionou bem, sendo finalizado pelo Agente de Apresentação.
+
+Proximos passo:
+
+Realizar mais testes para ver se encontramos mais inconsistências.

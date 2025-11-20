@@ -1,0 +1,10 @@
+Prompt:
+
+Orçamento 10 mil, pretendo passar 1 mês, sou aventureira, vou sozinha. Vou sair de Recife e quero viajar para Gramado no dia 20 de setembro de 2026; hospedagem pode ser a mais barata.
+
+Descrição:
+
+Por causa do aumento do limite de mensagens para 50, os agentes começaram a conversa normalmente, até ficarem sem "assunto" e começarem a mandar emojis um para o outro até atingir as 50 mensagens.
+
+Solução:
+Diminuímos o Max Message no orquestrador para 15 mensagens. Lembramos que é necessária uma palavra finalizadora no Agente de Apresentação.

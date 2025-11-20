@@ -1,0 +1,11 @@
+Prompt:
+
+Quero viajar com minha família para o Nordeste em julho, com foco em praias e cultura local, por até R$ 8.000
+
+Descrição:
+
+Os agentes conversam entre si. O fluxo passou pelos: Agente de Perfil, Agente de Destino, Agente de Transporte e Agente de Hospedagem. Quando chegou no Agente de Hospedagem, ele fez uma pergunta para o usuário: "Qual dessas opções te agrada mais? Ou você gostaria de explorar outras alternativas com características diferentes?". Quando obteve a resposta, o fluxo voltou para os mesmos agentes e finalizou no Agente de Hospedagem. Já identificamos o primeiro erro: não finalizou com o Agente de Apresentação e outros agentes não foram incluídos na conversa.
+
+Solução:
+
+Aumentamos o Max Message no orquestrador para 15 mensagens.

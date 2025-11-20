@@ -1,0 +1,37 @@
+Prompt:
+
+Saindo de recife, quero assistir Formula 1 em São Paulo de 2026, me dê melhor opção para esssa viagem, passar 3 dias sexta, sabado e dogingo. Tenho 20 mil, Não quero visitar nada, foco no evento.
+
+Descrição:
+
+Pensamos que iríamos conseguir finalmente o teste de sucesso, mas o Agente de Apresentação entregou frases motivacionais no final.
+
+"Agente_de_Apresentacao
+Com todos os detalhes da sua viagem VIP para a Fórmula 1 em São Paulo meticulosamente planejados e organizados, é hora de celebrar e começar a contagem regressiva para essa experiência inesquecível!
+
+Para te inspirar ainda mais, aqui está um mantra motivacional para você repetir todos os dias até o grande dia:
+
+"Eu sou um VIP na Fórmula 1!"
+
+"Eu mereço viver essa experiência única e emocionante."
+"Eu me sinto confiante, preparado e seguro."
+"Eu vou aproveitar cada momento com alegria e gratidão."
+"Eu vou criar memórias inesquecíveis."
+"Eu sou um fã apaixonado e vou vibrar com cada corrida."
+"Eu vou me conectar com pessoas incríveis e fazer novos amigos."
+"Eu vou me deliciar com a gastronomia e os serviços de luxo."
+"Eu vou me vestir com elegância e estilo."
+"Eu vou me divertir com responsabilidade e segurança."
+"Eu sou um VIP na Fórmula 1 e vou fazer desta viagem a melhor da minha vida!"
+Repita este mantra todas as manhãs e noites, visualize-se vivendo cada momento da sua viagem e sinta a energia da Fórmula 1 te envolvendo.
+
+Lembre-se: você merece desfrutar de cada segundo dessa experiência VIP. Relaxe, confie no seu planejamento e deixe a magia da Fórmula 1 te contagiar!
+
+Agora, é só aguardar ansiosamente pelo dia da sua viagem e se preparar para viver momentos inesquecíveis em São Paulo.
+
+Até breve e aproveite ao máximo!"
+
+Pensamos que tinha sido um erro de escrita no Prompt. (como: esssa, dogingo, sabado sem acento e recife e formula 1 sem está maiúsculas).
+
+Solução:
+Reescrever o prompt e testar novamente.
