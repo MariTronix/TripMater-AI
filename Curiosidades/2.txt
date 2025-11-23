@@ -1,0 +1,5 @@
+Houve conflitos entre os agentes? Como o orquestrador resolveu?
+
+O Conflito: O Agente de Hospedagem tentava decidir o destino (ex: "Vamos para SP porque é mais barato que Mônaco") antes que o Agente Financeiro pudesse realizar os cálculos oficiais.
+
+A Solução: Como o orquestrador é RoundRobin e não permite intervenção dinâmica, a solução foi encontrada por meio do Prompt. Criamos regras no prompt do Agente de Hospedagem impedindo-o de fazer decisões finais e exigindo que ele a apresente opções para todos os casos (Cenário A e Cenário B), deixando a decisão para o especialista financeiro na vez dele.

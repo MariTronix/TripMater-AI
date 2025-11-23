@@ -1,0 +1,9 @@
+Quais seriam os riscos se um agente estivesse mal configurado?
+
+Agente de Perfil: Se houver falhar, toda a equipe acaba trabalhando para a pessoa errada (ex: sugerir hotel barulhento para um executivo cansado).
+
+Agente Financeiro: O principal Perigo. Se estiver mal configurado, ele aprova viagens que levam o usuário contarir dívidas, gerando uma perda de confiança na IA.
+
+Agente de Itinerário: Se não tiver noção de tempo/espaço, cria agendas inviáveis, marcando jantar às 19h do outro lado da cidade onde o passeio termina às 18h50.
+
+Agente de Apresentação: Se tiver "memória curta", ele desconsidera os alertas de risco ou os custos estimados e faz promessas que não foram confirmadas.

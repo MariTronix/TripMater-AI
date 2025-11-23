@@ -1,0 +1,5 @@
+Que melhorias você faria para aprimorar a coordenação?
+
+No modelo, todos os agentes comunicam, mesmo que não sejam necessários (ex: o Agente de Eventos é ativado mesmo em uma viagem puramente de negócios, desperdiçando tokens). Então é necessário encontrar um forma de impedir que esse agente não seja ativado em todos os promtps.
+
+Preciso adotar um input estruturado que obrigue o usuário a fornecer dados fundamentais, como destino, orçamento, data e qunatidade de pessoas. Isso impedirá que o agente de perfil gere dados alunice e garantirá resposta mais confiáveis.

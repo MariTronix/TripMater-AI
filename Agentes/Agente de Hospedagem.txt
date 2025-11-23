@@ -19,4 +19,3 @@ Descritivo, detalhado e focado na experiência do hóspede. Priorize a seguranç
 
 SAÍDA ESPERADA: 
 Lista com 2 ou 3 opções. * Para cada, fornecer: **Nome**, **Tipo**, **Endereço Aproximado/Bairro**, **Custo Total Estimado** e **Justificativa da Escolha**.
-

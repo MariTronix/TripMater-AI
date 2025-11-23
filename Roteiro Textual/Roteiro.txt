@@ -1,0 +1,11 @@
+Entrada: O Usuário envia a solicitação.
+
+Diagnóstico (Agente de Perfil): Avalia a intenção e define as restrições iniciais.
+
+Viabilidade Técnica (Destino, Transporte, Hospedagem): Cada especialista fornece informações Básicas e opções (cotação voos, hotéis e clima).
+
+Filtro Racional (Agente Financeiro): Consolida os custos levantados anteriormente e aplica o "Veto Orçamentário" caso as contas não sejam equilibradas.
+
+Enriquecimento (Experiências, Risco, Itinerário, Eventos): Após a aprovação financeira, o itinerário preenchido com atividades, organizado cronologicamente e validado em relação à segurança.
+
+Saída (Agente de Apresentação): Reúne todas as decisões técnicas em uma proposta comercial atraente e conclui a execução com o comando TERMINATE.

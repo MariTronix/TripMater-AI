@@ -1,0 +1,7 @@
+Como o papel e a personalidade influenciaram as decisões finais?
+
+O Agente Financeiro com personalidade "Cética e Matemática" impediu a criação de roteiros alucinados (como ir para a Disney com pouco dinheiro), funcionando como um freio de realidade.
+
+O Agente de Apresentação com personalidade "Camaleoa" permitiu que a mesma informação técnica fosse transmitida de maneira formal para o cliente corporativo e  de forma vibrante para ao cliente de aventura.
+
+Sem essas definições de "Persona", todos os agentes pareciam iguais e geralmente concordavam com o usuário, mesmo quando o pedido não era inviável.
