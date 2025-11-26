@@ -12,6 +12,8 @@ A **TripMaster AI** não é apenas um chatbot de viagens. É um sistema orquestr
 
 Diferente de IAs genéricas, o sistema possui **freios e contrapesos**: um agente financeiro "audita" as sugestões do agente de lazer, garantindo que o sonho da viagem caiba no bolso do usuário.
 
+**TRELLO:** https://trello.com/b/HDum3pjR/projeto-tripmater
+
 ---
 
 ## 🤖 O Time de Agentes
