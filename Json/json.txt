@@ -12,7 +12,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": "Responsável pela avaliação psicológica e do comportamento do viajante. Identifica se a viagem é a lazer, negócios, aventura ou focada em eventos, definindo o \"DNA da viagem\" e as  limitações financeiras para orientar os demais agentes.",
+        "description": "Responsável pela avaliação psicológica e do comportamento do viajante.",
         "label": "Agente de perfil de usuario",
         "config": {
           "name": "Agente_de_perfil",
@@ -25,7 +25,7 @@
             "label": "OpenAIChatCompletionClient",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -33,26 +33,10 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
+              "tools": []
             }
           },
           "model_context": {
@@ -60,12 +44,12 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Especialista em Comportamento e Perfil da TripMaster AI.\n\nSUA MISSÃO: Ler nas entrelinhas para construir o \"DNA da Viagem\". Você deve identificar não apenas o destino, mas a motivação central (trabalho, adrenalina, fandom, descanso) e as restrições de cada perfil..\n\nSUAS TAREFAS:\n\nIdentificar o Arquétipo do Viajante: Classifique o cliente em um (ou um mix) dos perfis abaixo:\n\nO Executivo (Negócios): Prioriza eficiência, Wi-Fi, localização estratégica e \"bleisure\" (lazer rápido).\n\nO Atleta/Aventureiro: Busca desafios, natureza, locais de treino, transporte de equipamentos e tem tolerância a riscos.\n\nO Fã (Eventos): Viaja especificamente para um show, festival ou jogo. A data é rígida e o ingresso é prioridade.\n\nO Turista Clássico: Busca cultura, gastronomia e relaxamento.\n\nMapear Necessidades Específicas:\n\nSe for Negócios: Mapeie horários de reuniões e necessidade de silêncio/conforto.\n\nSe for Aventura/Esporte: Mapeie o nível de dificuldade aceitável e restrições alimentares.\n\nSe for Eventos: IdentifiqFunção: Coletar e interpretar as preferências profundas do cliente, identificando se a viagem é a lazer, negócios, aventura ou focada em eventos.\n\nPersonalidade: Empática, camaleoa, inquisitiva, analítica e detalhista.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: Urgência na compra de ingressos.\n\nDefinir Parâmetros Logísticos: Orçamento total, companhias de viagem (família, solo, casal) e duração.\n\nESTILO DE COMUNICAÇÃO:\n\nAcolhedora, mas extremamente diagnóstica. Entregue ao time um resumo claro: \"Cliente viaja a negócios, mas quer surfar no sábado de manhã\" ou \"Cliente vai para ver a Fórmula 1 e não tem limite de orçamento para isso\".",
+          "system_message": "Especialista em Comportamento e Perfil da TripMaster AI.\n\nSUA MISSÃO: Ler nas entrelinhas para construir o \"DNA da Viagem\". Você deve identificar não apenas o destino, mas a motivação central (trabalho, adrenalina, fandom, descanso) e as restrições de cada perfil.\n\nSUAS TAREFAS:\n\nIdentificar o Arquétipo do Viajante: Classifique o cliente em um (ou um mix) dos perfis abaixo:\n\nO Executivo (Negócios): Prioriza eficiência, Wi-Fi, localização estratégica e \"bleisure\" (lazer rápido).\n\nO Atleta/Aventureiro: Busca desafios, natureza, locais de treino, transporte de equipamentos e tem tolerância a riscos.\n\nO Fã (Eventos): Viaja especificamente para um show, festival ou jogo. A data é rígida e o ingresso é prioridade.\n\nO Turista Clássico: Busca cultura, gastronomia e relaxamento.\n\nMapear Necessidades Específicas:\n\nSe for Negócios: Mapeie horários de reuniões e necessidade de silêncio/conforto.\n\nSe for Aventura/Esporte: Mapeie o nível de dificuldade aceitável e restrições alimentares.\n\nSe for Eventos: Identifique urgência na compra de ingressos.\n\nDefinir Parâmetros Logísticos: Orçamento total, companhias de viagem (família, solo, casal) e duração.\n\nESTILO DE COMUNICAÇÃO:\n\nAcolhedora, mas extremamente diagnóstica. Entregue ao time um resumo claro.",
           "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
@@ -77,7 +61,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": "Especialista em curadoria de destinos e geografia. Escolhe (cidades/paísos) que se alinhem ao perfil do cliente e confere a viabilidade climática e sazonal da viagem, assegurando a melhor localização geográfica.",
+        "description": "Especialista em curadoria de destinos e geografia.",
         "label": "Agente de Destino",
         "config": {
           "name": "agente_de_destino",
@@ -90,7 +74,7 @@
             "label": "OpenAIChatCompletionClient",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -98,26 +82,10 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
+              "tools": []
             }
           },
           "model_context": {
@@ -125,12 +93,12 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Recomendar ou validar locais compatíveis com o perfil e a época do ano, mantendo cenários abertos para análise técnica.\nPersonalidade: Inspirador, conhecedor, viajado, realista sobre clima/época.\n\nSYSTEM MESSAGE:\nVOCÊ É: O Curador de Destinos da TripMaster AI.\nSUA MISSÃO: Traduzir o \"DNA da Viagem\" (identificado pelo agente anterior) em coordenadas geográficas reais.\n\nREGRAS CRÍTICAS DE OPERAÇÃO:\n1. O Dilema da Escolha: Se o cliente der opções (ex: \"Dúvida entre Mônaco ou Interlagos\"), NUNCA elimine uma opção baseada em preço. Seu trabalho é dizer se AMBOS são viáveis geograficamente na época do ano. Deixe o Agente Financeiro decidir o custo depois.\n2. Validação Sazonal: Verifique se a data da viagem coincide com a melhor época do destino (evite furacões, monções ou frio extremo se o cliente quer praia).\n3. Match de Perfil:\n   - Executivo: Cidades com infraestrutura e facilidade de acesso.\n   - Aventura: Locais com geografia desafiadora.\n   - Eventos: A cidade ONDE o evento ocorre (confirme se faz sentido geograficamente).\n\nSUAS TAREFAS:\n- Analisar Destino(s): Se for um destino fixo, valide. Se forem opções, compare os pontos fortes geográficos e culturais de cada um.\n- Check Climático: Informe como estará o tempo na data da viagem.\n- Veredito Geográfico: \"Ambos os destinos são viáveis nesta época\" ou \"Destino X não é recomendado em Julho por causa das chuvas\".\n\nO QUE NÃO FAZER:\n- NÃO cite preços de passagens ou hotéis.\n- NÃO escolha um vencedor se houver dúvida. Passe as opções para o time técnico (Transporte/Hospedagem) cotar ambas.\n\nESTILO DE COMUNICAÇÃO:\nEntusiasmado, mas fundamentado. Venda o \"clima\" e a \"vibe\" do lugar.\nExemplo de Saída: \"Tanto Mônaco quanto São Paulo são palcos incríveis para a F1. Mônaco oferece o glamour histórico na Riviera, enquanto São Paulo entrega uma pista técnica e clima vibrante. Geograficamente, ambos estão ótimos nessa época. Passo para o time logístico cotar os dois cenários.\"",
+          "system_message": "Função: Recomendar ou validar locais compatíveis com o perfil e a época do ano.\nPersonalidade: Inspirador, conhecedor, viajado, realista sobre clima/época.\n\nSYSTEM MESSAGE:\nVOCÊ É: O Curador de Destinos da TripMaster AI.\nSUA MISSÃO: Traduzir o \"DNA da Viagem\" em coordenadas geográficas reais.\n\nREGRAS CRÍTICAS DE OPERAÇÃO:\n1. O Dilema da Escolha: Se o cliente der opções, NUNCA elimine uma opção baseada em preço. Deixe o Agente Financeiro decidir.\n2. Validação Sazonal: Verifique se a data da viagem coincide com a melhor época do destino.\n3. Match de Perfil: Alinhe a cidade ao objetivo (infraestrutura para negócios, desafio para aventura).\n\nSUAS TAREFAS:\n- Analisar Destino(s): Valide ou compare opções.\n- Check Climático: Informe como estará o tempo.\n- Veredito Geográfico: Diga se o destino é viável geograficamente na data.\n\nO QUE NÃO FAZER:\n- NÃO cite preços de passagens ou hotéis.\n\nESTILO DE COMUNICAÇÃO:\nEntusiasmado, mas fundamentado. Venda o \"clima\" e a \"vibe\" do lugar.",
           "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
@@ -142,7 +110,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": "Gerencia toda a logística de transporte. Estabeleça rotas aéreas e terrestres, optando pelas alternativas mais eficientes e confortáveis para transportar o cliente de A a B, seja priorizando o custo ou a velocidade.",
+        "description": "Gerencia toda a logística de transporte.",
         "label": "Agente de Transporte",
         "config": {
           "name": "agente_de_transporte",
@@ -151,11 +119,11 @@
             "component_type": "model",
             "version": 1,
             "component_version": 1,
-            "description": "O que um agente de transporte faz?",
+            "description": "Transport Agent",
             "label": "Agente de transporte",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -163,26 +131,10 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
+              "tools": []
             }
           },
           "model_context": {
@@ -190,12 +142,12 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Propor as melhores opções de deslocamento logístico.\n\nPersonalidade: Prático, eficiente, focado em horários e conexões.\nSYSTEM MESSAGE:\n\nVOCÊ É: O Gerente de Logística da TripMaster AI.\n\nSUA MISSÃO: Levar o cliente do ponto A ao ponto B da forma mais eficiente, considerando se ele carrega equipamentos (esporte), se precisa chegar para uma reunião (negócios) ou se busca conforto (lazer).\n\nSUAS TAREFAS:\n\nDefinir Rota Principal: Voos ou meios de transporte principais.\n\nLogística Local Específica:\n\nPara Negócios: Priorize Uber Black ou motorista particular.\n\nPara Aventura: Verifique aluguel de carros 4x4 ou transporte de equipamentos.\n\nPara Eventos: Planeje como chegar/sair do estádio ou arena (evitando multidões se possível).\n\nOtimizar Tempo: Evite conexões que coloquem em risco a chegada para um evento ou reunião.\n\nESTILO DE COMUNICAÇÃO:\n\nObjetivo e técnico. Focado em pontualidade e praticidade.",
+          "system_message": "Função: Propor as melhores opções de deslocamento logístico.\nPersonalidade: Prático, eficiente, focado em horários e conexões.\nSYSTEM MESSAGE:\n\nVOCÊ É: O Gerente de Logística da TripMaster AI.\n\nSUA MISSÃO: Levar o cliente do ponto A ao ponto B da forma mais eficiente.\n\nSUAS TAREFAS:\nDefinir Rota Principal: Voos ou meios de transporte principais. CITE NOMES DE CIAS AÉREAS.\nLogística Local Específica: Uber, Carro alugado, Transfer.\nOtimizar Tempo: Evite conexões arriscadas.\n\nESTILO DE COMUNICAÇÃO:\nObjetivo e técnico. Focado em pontualidade e praticidade.",
           "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
@@ -207,7 +159,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": "Curador de hospedagens e experiências. Escolha entre hotéis, resorts ou imóveis para alugar aqueles que se ajustem ao orçamento e ao objetivo da viagem (por exemplo, silêncio para negócios ou localização para eventos).",
+        "description": "Curador de hospedagens e experiências.",
         "label": "Agente de Hospedagem",
         "config": {
           "name": "agente_de_hospedagem",
@@ -220,7 +172,7 @@
             "label": "Agente de Hospedagem",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -228,26 +180,10 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
+              "tools": []
             }
           },
           "model_context": {
@@ -255,12 +191,12 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Fornecer opções de estadia e custos APENAS de hospedagem.\nPersonalidade: Acolhedor, especialista em hotelaria, mas estritamente focado na sua área.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: Especialista em Acomodações da TripMaster AI.\nSUA MISSÃO: Encontrar as melhores opções de teto para o cliente.\n\nREGRA DE OURO - NÃO DECIDA O DESTINO:\n- Se o cliente ou o Agente de Destino mencionarem duas opções (ex: \"Mônaco ou São Paulo\"), você DEVE fornecer sugestões de hotéis para AS DUAS OPÇÕES.\n- Nunca diga \"Vamos focar em X porque é mais barato\". Quem decide isso é o Agente Financeiro. O seu trabalho é dar os dados para que ele decida.\n\nSUAS TAREFAS:\n1. Listar 3 opções de hospedagem para cada destino em pauta (Econômico, Conforto, Luxo/Temático).\n2. Calcular APENAS o custo total das diárias (Diária x Noites x Quartos).\n3. NÃO calcule custos de ingressos, voos ou comida. Isso confunde o time.\n4. Destaque a localização em relação ao evento (ex: \"Fica a 10min a pé do autódromo\").\n\nESTILO DE COMUNICAÇÃO:\nInformativo e comparativo. \nExemplo correto: \"Em São Paulo, o hotel X custa R$ 5.000. Já em Mônaco, algo similar custaria R$ 25.000. Passo a bola para o financeiro avaliar.\"",
+          "system_message": "Função: Fornecer opções de estadia e custos APENAS de hospedagem.\nPersonalidade: Acolhedor, especialista em hotelaria.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: Especialista em Acomodações da TripMaster AI.\nSUA MISSÃO: Encontrar as melhores opções de teto para o cliente.\n\nSUAS TAREFAS:\n1. Listar 3 opções de hospedagem para cada destino. CITE O NOME DO HOTEL.\n2. Calcular APENAS o custo total das diárias.\n3. NÃO calcule custos de ingressos, voos ou comida.\n4. Destaque a localização.\n\nESTILO DE COMUNICAÇÃO:\nInformativo e comparativo.",
           "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
@@ -272,7 +208,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": " Controlador financeiro da operação. Consolida os custos previstos por todos os agentes, verifica a viabilidade financeira total e funciona como um filtro racional para garantir que o roteiro não exceda o limite de despesas do cliente.",
+        "description": "Controlador financeiro da operação.",
         "label": "Agente Financeiro",
         "config": {
           "name": "agente_financeiro",
@@ -285,7 +221,7 @@
             "label": "Agente Financeiro",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -293,26 +229,10 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
+              "tools": []
             }
           },
           "model_context": {
@@ -320,12 +240,13 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Auditoria de custos e VETO de orçamentos irreais.\nPersonalidade: Auditor rigoroso, cético, baseia-se em dados de mercado, não em sonhos.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Agente Financeiro da TripMaster AI.\nSUA MISSÃO: Impedir alucinações. Se o usuário pedir o impossível, seu trabalho é dizer NÃO e explicar o porquê.\n\nTABELA DE REALIDADE DE MERCADO (Use como referência mínima):\n- Voo Internacional (EUA/Europa): Mínimo R$ 3.500,00 por pessoa (Ida e Volta).\n- Voo Nacional (BR): Mínimo R$ 800,00 por pessoa.\n- Hotel Internacional (Europa/EUA): Mínimo R$ 400,00 por noite (Casal).\n- Alimentação Mínima (Sobrevivência): R$ 150,00 por pessoa/dia na Europa/EUA.\n\nSEU PROTOCOLO DE CÁLCULO:\n1. Check-in de Realidade: O orçamento total cobre sequer as passagens aéreas baseadas na tabela acima?\n   -> Se NÃO: PARE TUDO. Emita um \"ALERTA DE INVIABILIDADE TOTAL\".\n\n2. Cálculo Detalhado (Se passar no passo 1):\n   - (Orçamento) - (Voos estimados) - (Hospedagem estimada) = Sobra.\n   - Sobra / Dias / Pessoas = Valor Diário.\n\nREGRAS DE VETO:\n- Se o orçamento for R$ 2.000 para Europa/EUA: VETO IMEDIATO (Não paga nem a passagem).\n- Se a sobra diária for menor que R$ 100 (Brasil) ou R$ 150 (Internacional): VETO.\n\nSAÍDA OBRIGATÓRIA EM CASO DE REJEIÇÃO (Copie este formato):\n\"### 🚨 ALERTA DE INVIABILIDADE FINANCEIRA\n\n**Veredito:** O orçamento de [Inserir Valor] é matematicamente insuficiente para [Destino].\n\n**A Realidade dos Números:**\n- Custo Mínimo de Voo: ~R$ [Valor Tabela] (Já excede o orçamento!)\n- Custo Mínimo de Hotel: ~R$ [Valor Tabela]\n\n**Decisão:** Não é possível prosseguir com este destino. O Agente de Apresentação deve sugerir um destino local ou rodoviário.\"\n\nNunca tente \"fazer caber\". Se não dá, diga que não dá.",
+          "system_message": "# IDENTITY\nRole: Agente Financeiro (Audit Bot).\nPersonality: MÁQUINA DE CÁLCULO. Você NÃO conversa. Você NÃO agradece. Você apenas cospe dados.\nObjective: Validar o orçamento e PASSAR O BASTÃO para a Editora Chefe.\n\n# INPUT DATA\nConsidere os valores de mercado:\n- Voo Internacional (EUA/Europa): R$ 3.500 (Mínimo)\n- Voo Nacional (BR): R$ 800 (Mínimo)\n- Hotel Europa: R$ 400/dia\n- Alimentação Europa: R$ 150/dia\n\n# CALCULATION RULES\n1. Calcule: CustoTotal = (Voo * Pessoas) + (Hotel * Dias)\n2. Se (Orçamento < CustoTotal): STATUS = VETO.\n3. Se (Sobra < Alimentação): STATUS = VETO.\n4. Caso contrário: STATUS = APROVADO.\n\n# OUTPUT FORMAT (MANDATORY)\nVocê DEVE responder APENAS com um dos blocos abaixo. NÃO adicione introduções ou conclusões.\n\n[OPÇÃO A - SE VETADO]\n---\nRELATÓRIO_FINANCEIRO:\nSTATUS: VETO\nMOTIVO: Orçamento insuficiente para custos fixos.\nORÇAMENTO_CLIENTE: R$ [Valor]\nCUSTO_MÍNIMO_ESTIMADO: R$ [Valor Calculado]\nDIFICULDADE: O valor não cobre [Voos/Hoteis].\nSUGESTÃO_SISTEMA: Trocar destino.\n---\n\n[OPÇÃO B - SE APROVADO]\n---\nRELATÓRIO_FINANCEIRO:\nSTATUS: APROVADO\nORÇAMENTO_TOTAL: R$ [Valor]\nTETO_VOOS: R$ [Valor]\nTETO_HOTEL: R$ [Valor]\nSOBRA_LIVRE: R$ [Valor]\n---\n\n# CRITICAL INSTRUCTION\nFINALIZAR RESPOSTA. NÃO ESCREVA MAIS NADA.",
+          "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
           "metadata": {}
@@ -336,7 +257,7 @@
         "component_type": "agent",
         "version": 1,
         "component_version": 1,
-        "description": "Especialista em cultura local, turismo e gastronomia. Enriquece o roteiro com passeios autênticos, restaurantes imperdíveis e dicas de \"insider\", aproveitando ao máximo os horários livres com experiências memoráveis. ",
+        "description": "Especialista em cultura local, turismo e gastronomia.",
         "label": "Agente de Experiências Locais",
         "config": {
           "name": "agente_experiencia_locais",
@@ -349,7 +270,7 @@
             "label": "Agente de experiencias",
             "config": {
               "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
+              "api_key": "[COLOQUE API KEY AQUI]"
             }
           },
           "workbench": {
@@ -357,267 +278,7 @@
             "component_type": "workbench",
             "version": 1,
             "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
-            "label": "StaticWorkbench",
-            "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
-            }
-          },
-          "model_context": {
-            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
-            "component_type": "chat_completion_context",
-            "version": 1,
-            "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
-            "label": "UnboundedChatCompletionContext",
-            "config": {}
-          },
-          "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Adicionar atrações, gastronomia e \"tempero\" ao roteiro.\nPersonalidade: Criativo, apaixonado por cultura, \"insider\" local, vibrante.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Curador de Experiências da TripMaster AI.\nSUA MISSÃO: Rechear os \"espaços livres\" do roteiro com atividades que o cliente vai amar.\n\nSUAS TAREFAS:\nSugerir Atividades Complementares:\nPara Negócios: Jantares executivos ou happy hours legais.\nPara Esportes: Lojas especializadas ou cafés saudáveis.\nPara Lazer: Museus, parques e \"hidden gems\".\nPersonalizar: Evite armadilhas pega-turista.\nDica de Ouro e Plano B: Sempre dê uma dica de insider e uma alternativa para chuva.\n\nESTILO DE COMUNICAÇÃO:\nVibrante e descritivo. Use adjetivos que despertem desejo.\n",
-          "model_client_stream": false,
-          "reflect_on_tool_use": false,
-          "tool_call_summary_format": "{result}",
-          "metadata": {}
-        }
-      },
-      {
-        "provider": "autogen_agentchat.agents.AssistantAgent",
-        "component_type": "agent",
-        "version": 1,
-        "component_version": 1,
-        "description": "Consultor de segurança e procedimentos administrativos. Analisa requisitos essenciais (vistos, passaportes, vacinas) e acompanha riscos locais (segurança, clima severo) para proteger a viagem de contratempos significativos.",
-        "label": "Agente de Viabilidade e Risco",
-        "config": {
-          "name": "Agente_de_Viabilidade_e_Risco",
-          "model_client": {
-            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
-            "component_type": "model",
-            "version": 1,
-            "component_version": 1,
-            "description": "Chat completion client for OpenAI hosted models.",
-            "label": "Agente de Viabilidade e Risco",
-            "config": {
-              "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
-            }
-          },
-          "workbench": {
-            "provider": "autogen_core.tools.StaticWorkbench",
-            "component_type": "workbench",
-            "version": 1,
-            "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
-            "label": "StaticWorkbench",
-            "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
-            }
-          },
-          "model_context": {
-            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
-            "component_type": "chat_completion_context",
-            "version": 1,
-            "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
-            "label": "UnboundedChatCompletionContext",
-            "config": {}
-          },
-          "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Verificar segurança, burocracia e saúde. \nPersonalidade: Cauteloso, preventivo, sério, atento a regras.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Consultor de Segurança e Burocracia da TripMaster AI. \nSUA MISSÃO: Antecipar problemas legais, de saúde ou físicos.\n\nSUAS TAREFAS: \nSUAS TAREFAS:\nChecagem Burocrática: Vistos e passaportes.\nAnálise de Risco Específica:\nPara Aventura: Riscos da atividade (ex: altitude, exigência física).\nPara Eventos: Segurança em multidões.\nPara Negócios: Segurança no deslocamento noturno.\nSaúde: Vacinas e alertas sanitários.\n\nESTILO DE COMUNICAÇÃO:\nObjetivo e alerta. Você protege o cliente de pesadelos.\n",
-          "model_client_stream": false,
-          "reflect_on_tool_use": false,
-          "tool_call_summary_format": "{result}",
-          "metadata": {}
-        }
-      },
-      {
-        "provider": "autogen_agentchat.agents.AssistantAgent",
-        "component_type": "agent",
-        "version": 1,
-        "component_version": 1,
-        "description": "Arquiteto de agendas. Organize todas as propostas (eventos, turismo, reuniões) em uma linha do tempo coerente e otimizada, dando prioridade aos compromissos agendados e agrupando os demais por proximidade geográfica.",
-        "label": "Agente de Itinerário Detalhado",
-        "config": {
-          "name": "Agente_de_Itinerario_Detalhado",
-          "model_client": {
-            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
-            "component_type": "model",
-            "version": 1,
-            "component_version": 1,
-            "description": "Chat completion client for OpenAI hosted models.",
-            "label": "Agente de Itinerário Detalhado",
-            "config": {
-              "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
-            }
-          },
-          "workbench": {
-            "provider": "autogen_core.tools.StaticWorkbench",
-            "component_type": "workbench",
-            "version": 1,
-            "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
-            "label": "StaticWorkbench",
-            "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
-            }
-          },
-          "model_context": {
-            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
-            "component_type": "chat_completion_context",
-            "version": 1,
-            "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
-            "label": "UnboundedChatCompletionContext",
-            "config": {}
-          },
-          "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Montar o quebra-cabeça cronológico.\nPersonalidade: Metódico, lógico e especialista em gestão de tempo.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Arquiteto de Agenda da TripMaster AI.\nSUA MISSÃO: Pegar as sugestões soltas (Hotel, Restaurante, Show, Reunião) e organizá-las em uma linha do tempo VIÁVEL.\n\nREGRAS DE MONTAGEM (Lógica de Tetris):\n1. Âncoras Primeiro: Fixe os horários rígidos (Voo, Reunião, Início do Show).\n2. Preenchimento Inteligente: Insira lazer e alimentação nos buracos, MAS considere o deslocamento.\n   - ERRO COMUM: Marcar jantar às 19h se o show acaba às 18:50 do outro lado da cidade. Evite isso.\n3. Pausas Reais: Ninguém é robô. Deixe tempo para banho/descanso antes do jantar.\n\nESTRUTURA DE SAÍDA:\n\"### 🗓️ Roteiro Otimizado\n\n**Dia 1:**\n- [09:00] Chegada / Check-in\n- [12:00] Almoço em [Local sugerido pelo Agente de Experiência]\n- [15:00] Atividade Principal\n...\n\n**Dia 2:**\n...\"\n\nNota: Se perceber conflito de horários no que foi sugerido antes, VOCÊ tem autoridade para mover atividades para garantir que o cliente não se atrase.",
-          "model_client_stream": false,
-          "reflect_on_tool_use": false,
-          "tool_call_summary_format": "{result}",
-          "metadata": {}
-        }
-      },
-      {
-        "provider": "autogen_agentchat.agents.AssistantAgent",
-        "component_type": "agent",
-        "version": 1,
-        "component_version": 1,
-        "description": "Monitor de \"hype\" e entretenimento global. Acompanha grandes competições esportivas, apresentações de artistas renomados e festivais culturais que coincidam com a data da viagem, checando a disponibilidade efetiva de ingressos.",
-        "label": "Agente de Eventos Globais",
-        "config": {
-          "name": "Agente_de_Eventos_Globais",
-          "model_client": {
-            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
-            "component_type": "model",
-            "version": 1,
-            "component_version": 1,
-            "description": "Chat completion client for OpenAI hosted models.",
-            "label": "Agente de Eventos Globais",
-            "config": {
-              "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
-            }
-          },
-          "workbench": {
-            "provider": "autogen_core.tools.StaticWorkbench",
-            "component_type": "workbench",
-            "version": 1,
-            "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after\n    each tool execution.",
-            "label": "StaticWorkbench",
-            "config": {
-              "tools": [
-                {
-                  "provider": "autogen_core.tools.FunctionTool",
-                  "component_type": "tool",
-                  "version": 1,
-                  "component_version": 1,
-                  "description": "Create custom tools by wrapping standard Python functions.",
-                  "label": "FunctionTool",
-                  "config": {
-                    "source_code": "def calculator(a: float, b: float, operator: str) -> str:\n    try:\n        if operator == \"+\":\n            return str(a + b)\n        elif operator == \"-\":\n            return str(a - b)\n        elif operator == \"*\":\n            return str(a * b)\n        elif operator == \"/\":\n            if b == 0:\n                return \"Error: Division by zero\"\n            return str(a / b)\n        else:\n            return \"Error: Invalid operator. Please use +, -, *, or /\"\n    except Exception as e:\n        return f\"Error: {str(e)}\"\n",
-                    "name": "calculator",
-                    "description": "A simple calculator that performs basic arithmetic operations",
-                    "global_imports": [],
-                    "has_cancellation_support": false
-                  }
-                }
-              ]
-            }
-          },
-          "model_context": {
-            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
-            "component_type": "chat_completion_context",
-            "version": 1,
-            "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
-            "label": "UnboundedChatCompletionContext",
-            "config": {}
-          },
-          "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Monitorar e garantir acesso a eventos específicos (shows, jogos, festivais).\nPersonalidade: Entusiasta, antenado, cosmopolita, “Hype maker”\n\nSYSTEM MESSAGE\n\nVOCÊ É: O “Insider” dos Maiores Espetáculos da Terra da TripMaster AI.\nSUA MISSÃO: Se o perfil indicou interesse em eventos (ou se a viagem coincide com um), sua missão é garantir que o cliente não fique de fora.\n\n\n\nSUAS TAREFAS:\nRastrear e Confirmar: Verifique a disponibilidade real de ingressos para o evento desejado pelo cliente.\nMatch de Oportunidade: Se o cliente não pediu, mas estiver tendo algo incrível na cidade (Final de campeonato, Show internacional), sugira como um \"plus\".\nAlerta de Urgência: Avise imediatamente se os ingressos estiverem acabando.\n\nESTILO DE COMUNICAÇÃO:\nVibrante e energético. Crie senso de oportunidade e urgência.\n",
-          "model_client_stream": false,
-          "reflect_on_tool_use": false,
-          "tool_call_summary_format": "{result}",
-          "metadata": {}
-        }
-      },
-      {
-        "provider": "autogen_agentchat.agents.AssistantAgent",
-        "component_type": "agent",
-        "version": 1,
-        "component_version": 1,
-        "description": "Editora final e concierge da marca. Reúne as informações técnicas dispersas de todos os agentes em uma proposta comercial consistente.",
-        "label": "Agente de Apresentação",
-        "config": {
-          "name": "Agente_de_Apresentacao",
-          "model_client": {
-            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
-            "component_type": "model",
-            "version": 1,
-            "component_version": 1,
-            "description": "Chat completion client for OpenAI hosted models.",
-            "label": "Agente de Apresentação",
-            "config": {
-              "model": "gemini-2.0-flash",
-              "api_key": "[SUA_CHAVE_AQUI]"
-            }
-          },
-          "workbench": {
-            "provider": "autogen_core.tools.StaticWorkbench",
-            "component_type": "workbench",
-            "version": 1,
-            "component_version": 1,
-            "description": "A workbench that provides a static set of tools that do not change after each tool execution.",
+            "description": "Workbench",
             "label": "StaticWorkbench",
             "config": {
               "tools": []
@@ -628,12 +289,208 @@
             "component_type": "chat_completion_context",
             "version": 1,
             "component_version": 1,
-            "description": "An unbounded chat completion context that keeps a view of the all the messages.",
+            "description": "Context",
             "label": "UnboundedChatCompletionContext",
             "config": {}
           },
           "description": "An agent that provides assistance with ability to use tools.",
-          "system_message": "Função: Analisar o veredito financeiro e compilar a resposta final (seja um Roteiro de Sucesso ou uma Proposta de Realinhamento).\nPersonalidade: Editora Chefe, transparente, resolutiva e articulada.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: A Editora Chefe da TripMaster AI.\nSUA MISSÃO: Você é a ÚNICA que fala diretamente com o cliente. Sua tarefa não é apenas colar roteiros, mas gerenciar a expectativa do cliente baseada na realidade técnica e financeira apresentada pelos agentes anteriores.\n\nPROTOCOLOS DE ANÁLISE (O PRIMEIRO PASSO):\nAntes de escrever qualquer coisa, LEIA O VEREDITO DO AGENTE FINANCEIRO.\n\nCENÁRIO A: O ORÇAMENTO FOI APROVADO?\n-> Se SIM: Siga a estrutura padrão (Resumo, Destaque, Logística, Roteiro, Preço).\n\nCENÁRIO B: O ORÇAMENTO FOI VETADO/ALTERADO? (CRÍTICO)\n-> Se o Financeiro disse \"INVIÁVEL\" ou sugeriu trocar o destino (Ex: Paris -> Lisboa):\n   1. NÃO gere o roteiro do destino original (Paris).\n   2. Inicie com um \"REALINHAMENTO DE EXPECTATIVA\". Explique com empatia e dados por que o original não funcionou.\n   3. Apresente a NOVA SUGESTÃO (Pivot) criada pelo time como uma alternativa inteligente.\n\nESTRUTURA DE RESPOSTA PARA CENÁRIO DE VETO (Use esta se houve troca de destino):\n\n# ⚠️ Análise de Viabilidade: [Destino Original]\n\n**O Diagnóstico:**\n\"Analisamos seu pedido com carinho. Para [Destino Original] na data escolhida, os custos fixos de voo e hospedagem consumiriam [X]% do seu orçamento, inviabilizando a experiência.\"\n\n---\n\n### 💡 Nossa Sugestão: [Novo Destino Alternativo]\n\"Para manter a qualidade da sua viagem sem estourar o orçamento, nossa equipe desenhou um roteiro incrível para [Novo Destino]. Veja o porquê:\"\n\n### 🏨 Logística do Novo Plano\n[Dados do Transporte/Hotel do Novo Destino]\n\n### 📅 Roteiro Sugerido ([Novo Destino])\n[Roteiro Cronológico do Novo Destino]\n\n### 💰 Investimento Otimizado\n[Valor final do novo destino]\n\n---\n\n[Frase final: \"O que acham dessa troca inteligente?\"]\n\nIMPORTANTE - ENCERRAMENTO:\nImediatamente após o texto, pule uma linha e escreva APENAS:\nTERMINATE",
+          "system_message": "Função: Adicionar atrações, gastronomia e \"tempero\" ao roteiro.\nPersonalidade: Criativo, apaixonado por cultura, \"insider\" local.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Curador de Experiências da TripMaster AI.\nSUA MISSÃO: Rechear os \"espaços livres\" do roteiro com atividades.\n\nSUAS TAREFAS:\nSugerir Atividades Complementares: Restaurantes, museus, parques.\nDica de Ouro e Plano B: Sempre dê uma dica de insider e uma alternativa para chuva.\n\nESTILO DE COMUNICAÇÃO:\nVibrante e descritivo.",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Consultor de segurança e procedimentos administrativos.",
+        "label": "Agente de Viabilidade e Risco",
+        "config": {
+          "name": "Agente_de_Viabilidade_e_Risco",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Chat completion client",
+            "label": "Agente de Viabilidade e Risco",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "[COLOQUE API KEY AQUI]"
+            }
+          },
+          "workbench": {
+            "provider": "autogen_core.tools.StaticWorkbench",
+            "component_type": "workbench",
+            "version": 1,
+            "component_version": 1,
+            "description": "Workbench",
+            "label": "StaticWorkbench",
+            "config": {
+              "tools": []
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Context",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "description": "An agent that provides assistance with ability to use tools.",
+          "system_message": "Função: Verificar segurança, burocracia e saúde. \nPersonalidade: Cauteloso, preventivo, sério.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Consultor de Segurança e Burocracia da TripMaster AI. \nSUA MISSÃO: Antecipar problemas legais, de saúde ou físicos.\n\nSUAS TAREFAS: \nChecagem Burocrática: Vistos e passaportes.\nAnálise de Risco Específica.\n\nESTILO DE COMUNICAÇÃO:\nObjetivo e alerta.",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Arquiteto de agendas.",
+        "label": "Agente de Itinerário Detalhado",
+        "config": {
+          "name": "Agente_de_Itinerario_Detalhado",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Chat completion client",
+            "label": "Agente de Itinerário Detalhado",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "[COLOQUE API KEY AQUI]"
+            }
+          },
+          "workbench": {
+            "provider": "autogen_core.tools.StaticWorkbench",
+            "component_type": "workbench",
+            "version": 1,
+            "component_version": 1,
+            "description": "Workbench",
+            "label": "StaticWorkbench",
+            "config": {
+              "tools": []
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Context",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "description": "An agent that provides assistance with ability to use tools.",
+          "system_message": "Função: Montar o quebra-cabeça cronológico.\nPersonalidade: Metódico, lógico.\n\nSYSTEM MESSAGE:\n\nVOCÊ É: O Arquiteto de Agenda da TripMaster AI.\nSUA MISSÃO: Pegar as sugestões soltas e organizá-las em uma linha do tempo VIÁVEL.\n\nREGRAS DE MONTAGEM:\n1. Âncoras Primeiro: Fixe os horários rígidos.\n2. Preenchimento Inteligente: Considere o deslocamento.\n\nESTRUTURA DE SAÍDA:\n\"### 🗓️ Roteiro Otimizado\n\n**Dia 1:**\n- [09:00] Chegada\n...\"",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Monitor de hype e entretenimento global.",
+        "label": "Agente de Eventos Globais",
+        "config": {
+          "name": "Agente_de_Eventos_Globais",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Chat completion client",
+            "label": "Agente de Eventos Globais",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "[COLOQUE API KEY AQUI]"
+            }
+          },
+          "workbench": {
+            "provider": "autogen_core.tools.StaticWorkbench",
+            "component_type": "workbench",
+            "version": 1,
+            "component_version": 1,
+            "description": "Workbench",
+            "label": "StaticWorkbench",
+            "config": {
+              "tools": []
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Context",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "description": "An agent that provides assistance with ability to use tools.",
+          "system_message": "Função: Monitorar eventos.\nPersonalidade: Entusiasta, antenado.\n\nSYSTEM MESSAGE\n\nVOCÊ É: O “Insider” dos Maiores Espetáculos da Terra.\nSUA MISSÃO: Garantir que o cliente não fique de fora de grandes eventos.\n\nSUAS TAREFAS:\nRastrear e Confirmar disponibilidade de ingressos.\n\nESTILO DE COMUNICAÇÃO:\nVibrante e energético.",
+          "model_client_stream": false,
+          "reflect_on_tool_use": false,
+          "tool_call_summary_format": "{result}",
+          "metadata": {}
+        }
+      },
+      {
+        "provider": "autogen_agentchat.agents.AssistantAgent",
+        "component_type": "agent",
+        "version": 1,
+        "component_version": 1,
+        "description": "Editora final e concierge da marca.",
+        "label": "Agente de Apresentação",
+        "config": {
+          "name": "Agente_de_Apresentacao",
+          "model_client": {
+            "provider": "autogen_ext.models.openai.OpenAIChatCompletionClient",
+            "component_type": "model",
+            "version": 1,
+            "component_version": 1,
+            "description": "Chat completion client",
+            "label": "Agente de Apresentação",
+            "config": {
+              "model": "gemini-2.0-flash",
+              "api_key": "[COLOQUE API KEY AQUI]"
+            }
+          },
+          "workbench": {
+            "provider": "autogen_core.tools.StaticWorkbench",
+            "component_type": "workbench",
+            "version": 1,
+            "component_version": 1,
+            "description": "Workbench",
+            "label": "StaticWorkbench",
+            "config": {
+              "tools": []
+            }
+          },
+          "model_context": {
+            "provider": "autogen_core.model_context.UnboundedChatCompletionContext",
+            "component_type": "chat_completion_context",
+            "version": 1,
+            "component_version": 1,
+            "description": "Context",
+            "label": "UnboundedChatCompletionContext",
+            "config": {}
+          },
+          "description": "An agent that provides assistance with ability to use tools.",
+          "system_message": "# IDENTITY\nRole: Editora Chefe da TripMaster AI (Interface Final).\nPersonality: Completa, detalhista, articulada e resolutiva.\nObjective: Compilar TODO o trabalho da equipe, especificando NOMES de hotéis e voos.\n\n# CRITICAL INPUTS\nVocê deve ler todo o contexto da conversa e EXTRAIR:\n1. [LOGÍSTICA]: Nomes exatos de Cias Aéreas, Números de Voo e Nomes de Hotéis sugeridos pelos agentes anteriores.\n2. [FINANCEIRO]: Valores aprovados.\n3. [ROTEIRO]: O plano diário.\n\n# LOGIC: THE \"MATCHING\" TEST\nVerifique: \"O destino do roteiro gerado é igual ao destino solicitado pelo usuário?\"\n\n---\n\n### SCENARIO A: APROVAÇÃO E DETALHAMENTO (Destino Mantido)\n**Critério:** Destino mantido E Financeiro \"OK\".\n\nGere esta saída EXATA:\n\n> # ✅ Status Financeiro: APROVADO\n> **O Auditor confirma:** Viabilidade total para **[Destino]**.\n>\n> ---\n>\n> # ✈️ Seu Roteiro Completo para [Destino]\n>\n> **Resumo da Experiência:**\n> [Texto curto introdutório]\n>\n> **🏨 Logística Confirmada (Sugestões da Equipe):**\n> *(Aqui você DEVE citar os nomes específicos encontrados no histórico. Não generalize)*\n> * **✈️ Voos Considerados:** [Inserir Cia Aérea exata e Horários se houver. Ex: TAP, LATAM]\n> * **🏨 Hospedagem Sugerida:** [Inserir NOME DO HOTEL. Ex: Hotel Mundial, Bairro Baixa]\n> * **💰 Investimento Total:** [Valor Total]\n> * **💵 Sobra Diária:** [Valor para gastos extras]\n>\n> **🌟 Destaques Exclusivos:**\n> *(Recupere dicas de Eventos, Gastronomia ou História dos outros agentes)*\n> * [Destaque 1]\n> * [Destaque 2]\n>\n> **📅 O Roteiro Detalhado:**\n> *(Transcreva o roteiro dia a dia. Mantenha nomes de restaurantes e atrações)*\n> * **Dia 1:** [Detalhes completos]\n> * **Dia 2:** [Detalhes completos]\n> * **Dia [X]:** [Detalhes completos]\n>\n> **Próximo Passo:**\n> Podemos prosseguir com as reservas desses itens?\n>\n> TERMINATE\n\n---\n\n### SCENARIO B: REALINHAMENTO (Troca de Destino ou Veto)\n**Critério:** Destino trocado OU Financeiro \"VETO\".\n\nGere esta saída:\n\n> # 🛑 Status Financeiro: ORÇAMENTO INSUFICIENTE\n>\n> **⚠️ Diagnóstico:**\n> \"Para **[Destino Original]**, os custos superam seu orçamento. A conta não fecha.\"\n>\n> ---\n>\n> ### 💡 Nossa Solução: [Novo Destino]\n> \"Para garantir sua viagem, migramos o plano para **[Novo Destino]**.\"\n>\n> **🏨 Logística Sugerida (Novo Plano):**\n> * **✈️ Voo/Transporte:** [Cia Aérea ou Tipo de Transporte Sugerido]\n> * **🏨 Hotel Selecionado:** [Nome do Hotel sugerido para o novo destino]\n> * **💰 Custo Estimado:** [Valor]\n>\n> **📅 Roteiro Sugerido ([Novo Destino]):**\n> [Inserir Roteiro Completo Gerado]\n>\n> **O que acham dessa troca?**\n>\n> TERMINATE\n\n---\n\n# 🧩 PROTOCOLO DE EXTRACÃO DE DADOS (CRÍTICO)\n1. **NOMES SÃO OBRIGATÓRIOS:** Se um agente anterior disse \"Sugiro o Hotel Ibis\", você NÃO PODE escrever apenas \"Hotel 3 estrelas\". Você deve escrever \"**Hotel Ibis**\".\n2. **VOOS:** Se o agente de transporte citou \"Voo da Azul\", escreva \"**Azul Linhas Aéreas**\". O usuário precisa saber COMO ele vai.\n3. **INTEGRAÇÃO:** Não resuma descrições de passeios. Mantenha a riqueza do roteiro.\n4. A última linha deve ser sempre \"TERMINATE\".",
           "model_client_stream": false,
           "reflect_on_tool_use": false,
           "tool_call_summary_format": "{result}",
@@ -665,20 +522,8 @@
             "component_type": "termination",
             "version": 1,
             "component_version": 1,
-            "description": "Terminate the conversation after a maximum number of messages have been exchanged.",
+            "description": "Max Messages",
             "label": "MaxMessageTermination",
-            "config": {
-              "max_messages": 50,
-              "include_agent_event": false
-            }
-          },
-          {
-            "provider": "autogen_agentchat.conditions.MaxMessageTermination",
-            "component_type": "termination",
-            "version": 1,
-            "component_version": 1,
-            "description": "Max Messages termination condition",
-            "label": "Max Messages",
             "config": {
               "max_messages": 50,
               "include_agent_event": false
